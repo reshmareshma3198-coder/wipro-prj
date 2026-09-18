@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>PlacementPro Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body onload="checkLogin()">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            💼 <span>PlacementPro</span>
+        </div>
+
+
+        <nav>
+
+            <button
+                class="nav-btn active"
+                onclick="showSection('dashboard')"
+            >
+                🏠 Dashboard
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('aptitude')"
+            >
+                🧮 Aptitude
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('coding')"
+            >
+                💻 Coding
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('gd')"
+            >
+                🗣️ GD Practice
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('hr')"
+            >
+                👔 HR Interview
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('tasks')"
+            >
+                ✅ Tasks
+            </button>
+
+
+            <button
+                class="nav-btn"
+                onclick="showSection('schedule')"
+            >
+                📅 Schedule
+            </button>
+
+        </nav>
+
+
+        <button
+            class="theme-btn"
+            onclick="toggleTheme()"
+        >
+            🌙 Dark Mode
+        </button>
+
+
+        <button
+            class="logout-btn"
+            onclick="logoutUser()"
+        >
+            🚪 Logout
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header>
+
+            <div>
+
+                <h1>
+                    Placement Preparation
+                </h1>
+
+                <p>
+                    Prepare today. Get placed tomorrow. 🚀
+                </p>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-name">
+
+                    👤
+
+                    <span id="displayUsername">
+                        Student
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- DASHBOARD -->
+
+        <section
+            id="dashboard"
+            class="section active-section"
+        >
+
+            <div class="welcome">
+
+                <div>
+
+                    <h2>
+                        Welcome Back,
+                        <span id="welcomeName">
+                            Student
+                        </span>! 👋
+                    </h2>
+
+                    <p>
+                        Let's continue your placement preparation.
+                    </p>
+
+                </div>
+
+
+                <div class="target">
+
+                    🎯 Goal: Get Placed
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STATS -->
+
+            <div class="stats">
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        🧮
+                    </div>
+
+                    <h3>
+                        Aptitude
+                    </h3>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:75%"
+                        ></div>
+
+                    </div>
+
+                    <p>
+                        75% Completed
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        💻
+                    </div>
+
+                    <h3>
+                        Coding
+                    </h3>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:60%"
+                        ></div>
+
+                    </div>
+
+                    <p>
+                        60% Completed
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        🗣️
+                    </div>
+
+                    <h3>
+                        Communication
+                    </h3>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:70%"
+                        ></div>
+
+                    </div>
+
+                    <p>
+                        70% Completed
+                    </p>
+
+                </div>
+
+
+
+                <div class="card">
+
+                    <div class="icon">
+                        👔
+                    </div>
+
+                    <h3>
+                        HR Preparation
+                    </h3>
+
+                    <div class="progress">
+
+                        <div
+                            class="progress-bar"
+                            style="width:80%"
+                        ></div>
+
+                    </div>
+
+                    <p>
+                        80% Completed
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TASK + PROGRESS -->
+
+            <div class="content-grid">
+
+
+                <div class="panel">
+
+                    <h2>
+                        📋 Today's Preparation
+                    </h2>
+
+
+                    <div class="task">
+
+                        <input
+                            type="checkbox"
+                            onchange="updateDashboard()"
+                        >
+
+                        <span>
+                            Practice 10 Aptitude Questions
+                        </span>
+
+                    </div>
+
+
+                    <div class="task">
+
+                        <input
+                            type="checkbox"
+                            onchange="updateDashboard()"
+                        >
+
+                        <span>
+                            Solve 2 Coding Problems
+                        </span>
+
+                    </div>
+
+
+                    <div class="task">
+
+                        <input
+                            type="checkbox"
+                            onchange="updateDashboard()"
+                        >
+
+                        <span>
+                            Practice 1 GD Topic
+                        </span>
+
+                    </div>
+
+
+                    <div class="task">
+
+                        <input
+                            type="checkbox"
+                            onchange="updateDashboard()"
+                        >
+
+                        <span>
+                            Prepare 5 HR Questions
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="panel">
+
+                    <h2>
+                        📊 Overall Progress
+                    </h2>
+
+                    <div class="circle">
+
+                        <span id="overallProgress">
+                            0%
+                        </span>
+
+                    </div>
+
+                    <p class="center">
+                        Keep Going! 🔥
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- APTITUDE -->
+
+        <section
+            id="aptitude"
+            class="section"
+        >
+
+            <div class="page-title">
+
+                <h2>
+                    🧮 Aptitude Practice
+                </h2>
+
+                <p>
+                    Test your quantitative and logical thinking skills.
+                </p>
+
+            </div>
+
+
+            <div class="quiz-container">
+
+                <div class="quiz-header">
+
+                    <span id="questionNumber">
+                        Question 1 / 10
+                    </span>
+
+                    <div class="score-box">
+
+                        Score:
+                        <span id="score">
+                            0
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-progress">
+
+                    <div id="quizProgress"></div>
+
+                </div>
+
+
+                <div class="quiz-content">
+
+                    <h3 id="question"></h3>
+
+                    <div
+                        id="options"
+                        class="options"
+                    ></div>
+
+                    <p
+                        id="quizResult"
+                        class="quiz-result"
+                    ></p>
+
+                </div>
+
+
+                <div class="quiz-buttons">
+
+                    <button
+                        id="prevBtn"
+                        onclick="previousQuestion()"
+                    >
+                        ← Previous
+                    </button>
+
+
+                    <button
+                        id="nextBtn"
+                        onclick="nextQuestion()"
+                    >
+                        Next →
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="finalResult"
+                    class="final-result"
+                >
+
+                    <div class="result-icon">
+                        🏆
+                    </div>
+
+                    <h2>
+                        Quiz Completed!
+                    </h2>
+
+                    <p>
+                        Your Score
+                    </p>
+
+                    <div
+                        class="final-score"
+                        id="finalScore"
+                    >
+                        0 / 10
+                    </div>
+
+                    <p id="percentage"></p>
+
+                    <button
+                        onclick="restartQuiz()"
+                        class="restart-btn"
+                    >
+                        🔄 Restart Quiz
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- CODING -->
+
+        <section
+            id="coding"
+            class="section"
+        >
+
+            <div class="page-title">
+
+                <h2>
+                    💻 Coding Practice
+                </h2>
+
+                <p>
+                    Choose a language and solve coding problems.
+                </p>
+
+            </div>
+
+
+            <div class="coding-languages">
+
+                <button onclick="selectLanguage('Java')">
+                    ☕ Java
+                </button>
+
+                <button onclick="selectLanguage('Python')">
+                    🐍 Python
+                </button>
+
+                <button onclick="selectLanguage('JavaScript')">
+                    🟨 JavaScript
+                </button>
+
+                <button onclick="selectLanguage('SQL')">
+                    🗄️ SQL
+                </button>
+
+            </div>
+
+
+            <div class="coding-workspace">
+
+
+                <div class="coding-top">
+
+                    <span id="currentLanguage">
+                        ☕ Java
+                    </span>
+
+                    <span class="status">
+                        ● Ready
+                    </span>
+
+                </div>
+
+
+                <div class="coding-question">
+
+                    <h3 id="codingTitle">
+                        📝 Coding Problem
+                    </h3>
+
+                    <p id="codingQuestion">
+                        Write a program to print "Hello World".
+                    </p>
+
+                </div>
+
+
+                <div class="editor-container">
+
+                    <div class="editor-title">
+
+                        <span>
+                            code
+                        </span>
+
+                        <span>
+                            ● ● ●
+                        </span>
+
+                    </div>
+
+
+                    <textarea
+                        id="codeEditor"
+                        spellcheck="false"
+                        placeholder="Write your code here..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="coding-actions">
+
+                    <button
+                        class="run-button"
+                        onclick="runCoding()"
+                    >
+                        ▶ Run Code
+                    </button>
+
+
+                    <button
+                        class="clear-button"
+                        onclick="clearCoding()"
+                    >
+                        🗑️ Clear
+                    </button>
+
+                </div>
+
+
+                <div class="coding-output">
+
+                    <h3>
+                        💡 Output
+                    </h3>
+
+                    <pre id="codingOutput">
+Click "Run Code" to execute your program...
+                    </pre>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- GD -->
+
+        <section
+            id="gd"
+            class="section"
+        >
+
+            <h2>
+                🗣️ GD Practice
+            </h2>
+
+            <div class="gd-box">
+
+                <h3>
+                    Today's Topic
+                </h3>
+
+                <div class="gd-topic">
+                    "Artificial Intelligence: Boon or Threat?"
+                </div>
+
+                <div
+                    class="timer"
+                    id="timer"
+                >
+                    01:00
+                </div>
+
+                <button
+                    class="start-btn"
+                    onclick="startTimer()"
+                >
+                    ▶ Start 1 Minute
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- HR -->
+
+        <section
+            id="hr"
+            class="section"
+        >
+
+            <h2>
+                👔 HR Interview Preparation
+            </h2>
+
+
+            <div class="hr-box">
+
+                <h3>
+                    Common HR Questions
+                </h3>
+
+
+                <div class="question-card">
+                    <span>1</span>
+                    Tell me about yourself.
+                </div>
+
+
+                <div class="question-card">
+                    <span>2</span>
+                    What are your strengths?
+                </div>
+
+
+                <div class="question-card">
+                    <span>3</span>
+                    What is your weakness?
+                </div>
+
+
+                <div class="question-card">
+                    <span>4</span>
+                    Why should we hire you?
+                </div>
+
+
+                <div class="question-card">
+                    <span>5</span>
+                    Where do you see yourself in 5 years?
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TASKS -->
+
+        <section
+            id="tasks"
+            class="section"
+        >
+
+            <h2>
+                ✅ My Preparation Tasks
+            </h2>
+
+
+            <div class="todo-container">
+
+                <input
+                    type="text"
+                    id="taskInput"
+                    placeholder="Enter a preparation task..."
+                    onkeypress="taskEnter(event)"
+                >
+
+
+                <button onclick="addTask()">
+                    Add Task
+                </button>
+
+
+                <div id="taskList"></div>
+
+
+                <button
+                    class="clear-btn"
+                    onclick="clearTasks()"
+                >
+                    Clear All
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SCHEDULE -->
+
+        <section
+            id="schedule"
+            class="section"
+        >
+
+            <h2>
+                📅 Interview Schedule
+            </h2>
+
+
+            <div class="schedule-box">
+
+
+                <div class="schedule-card">
+
+                    <h3>
+                        🏢 Sutherland
+                    </h3>
+
+                    <p>
+                        Customer Support Interview
+                    </p>
+
+                    <strong>
+                        📅 September 20, 2026
+                    </strong>
+
+                    <span>
+                        ⏰ 10:00 AM
+                    </span>
+
+                </div>
+
+
+                <div class="schedule-card">
+
+                    <h3>
+                        💻 Technical Practice
+                    </h3>
+
+                    <p>
+                        Mock Coding Interview
+                    </p>
+
+                    <strong>
+                        📅 September 22, 2026
+                    </strong>
+
+                    <span>
+                        ⏰ 02:00 PM
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
